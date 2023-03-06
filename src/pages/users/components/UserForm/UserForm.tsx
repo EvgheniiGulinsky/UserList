@@ -20,7 +20,7 @@ export const UserForm = () => {
   const navigate = useNavigate();
   const { userId } = useParams();
   const isEditing = !!userId;
-  const user = isEditing && getUser(userId);
+  const user = isEditing ? getUser(userId) : null;
 
   const formSchema = Yup.object().shape({
     name: Yup.string().max(100, "Name is too Long!").required("Required"),
