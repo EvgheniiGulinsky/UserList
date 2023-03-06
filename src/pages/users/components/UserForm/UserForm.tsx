@@ -35,21 +35,13 @@ export const UserForm = () => {
       </Heading>
       <Formik
         initialValues={
-          user
-            ? {
-                name: user.name,
-                dateOfBirth: user.dateOfBirth,
-                adress: user.adress || "",
-                city: user.city || "",
-                phoneNumber: user.phoneNumber || "",
-              }
-            : {
-                name: "",
-                dateOfBirth: "",
-                adress: "",
-                city: "",
-                phoneNumber: "",
-              }
+          {
+            name: user?.name || "",
+            dateOfBirth: user?.dateOfBirth || "",
+            adress: user?.adress || "",
+            city: user?.city || "",
+            phoneNumber: user?.phoneNumber || "",
+          }
         }
         validationSchema={formSchema}
         onSubmit={(values) => {
@@ -59,7 +51,7 @@ export const UserForm = () => {
           };
 
           if (isEditing) {
-            changeUser(newUser, userId);
+            changeUser(newUser);
           } else {
             addUser(newUser);
           }

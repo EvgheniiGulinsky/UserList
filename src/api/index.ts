@@ -23,10 +23,10 @@ const addUser = (newUser: IUser): void => {
   localStorage.setItem("users", JSON.stringify(users));
 };
 
-const changeUser = (newUser: IUser, id: string): void => {
+const changeUser = (newUser: IUser): void => {
   const users = getUsers();
   const newUsers = users.map((user) => {
-    if (user.id === id) {
+    if (user.id === newUser.id) {
       return newUser;
     }
     return user;
